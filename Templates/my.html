@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+       
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: black;
+    padding: 0 10px;
+}
+.wrapper{
+    max-width: 500px;
+    width: 100%;
+    background: white;
+    margin: 20px auto;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
+    padding: 30px;
+}
+  
+.wrapper .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+}
+  
+.wrapper .form{
+    width: 100%;
+}
+  
+.wrapper .form .inputfield{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+  
+.wrapper .form .inputfield label{
+     width: 200px;
+     color: black;
+     margin-right: 10px;
+    font-size: 14px;
+}
+
+.check{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.check label{
+    padding: 0px 10px 0px 0px;
+}
+
+.wrapper .form .inputfield .input{
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+}
+
+.wrapper .form .inputfield .custom_select{
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+  
+.wrapper .form .inputfield .custom_select:before{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+  
+.wrapper .form .inputfield .custom_select select{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+}
+
+.wrapper .form .inputfield .btn{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px; 
+    border: 0px;
+    background:  black;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+  
+.result p{
+    text-align: center;
+    color: blue;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="title">House Price Predictor</div>
+        <form action="/" method="POST">
+            <div class="form"> 
+                <div class="inputfield">
+                    <label for="OverallQual">OverallQual (0 -7)</label>
+                    <input class="input" type="text" name="OverallQual" required>
+                </div>
+                <div class="inputfield">
+                    <label for="GrLivArea">GrLivArea (0 - 1710)</label>
+                    <input class="input" type="text" name="GrLivArea" required>
+                </div>
+                
+                <div class="inputfield">
+                    <label for="MSZoning">MSZoning</label>
+                    <div class = "custom_select">
+                        <select name="MSZoning" id="MSZoning">
+                            <option value="" selected hidden>Select</option>
+                            <option value="RL">RL</option>
+                            <option value="RM">RM</option>
+                            <option value="FV">FV</option>
+                            <option value="RH">RH</option>
+                            <option value="C">C</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="SaleType">SaleType</label>           
+                    <div class = "custom_select">
+                        <select name="SaleType" id="SaleType">
+                            <option value="" selected hidden>Select</option>
+                            <option value="WD">WD</option>
+                            <option value="New">New</option>
+                            <option value="COD">COD</option>
+                            <option value="ConLD">ConLD</option>
+                            <option value="ConLw">ConLw</option>
+                            <option value="Oth">Oth</option>
+                            <option value="Con">Con</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="SaleType">SaleType</label>   
+                    <div class = "custom_select">
+                        <select name="SaleType" id="SaleType">
+                            <option value="" selected hidden>Select</option>
+                            <option value="intelcorei3">WD</option>
+                            <option value="intelcorei5">New</option>
+                            <option value="intelcorei7">COD</option>
+                            <option value="Other">Other</option>
+                        </select>  
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="SaleCondition">SaleCondition</label>
+                    <div class = "custom_select">
+                        <select name="SaleCondition" id="SaleCondition">
+                            <option value="" selected hidden>Select</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Partial">Partial</option>
+                            <option value="Abnorml">Abnorml</option>
+                            <option value="Family">Family</option>
+                            <option value="Alloca ">Alloca</option>
+                            <option value="AdjLand">AdjLand</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="GarageType">GarageType</label>
+                    <div class = "custom_select">
+                        <select name="GarageType" id="GarageType">
+                            <option value="" selected hidden>Select</option>
+                            <option value="Attchd">Attchd</option>
+                            <option value="Detchd">Detchd</option>
+                            <option value="BuiltIn">BuiltIn</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="LotShape">LotShape</label>
+                    <div class = "custom_select">
+                        <select name="LotShape" id="LotShape">
+                            <option value="" selected hidden>Select</option>
+                            <option value="Reg">Reg</option>
+                            <option value="IR1">IR1</option>
+                            <option value="IR2">IR2</option>
+                            <option value="IR3">IR3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <label for="HouseStyle">HouseStyle</label>
+                    <div class = "custom_select">
+                        <select name="HouseStyle" id="HouseStyle">
+                            <option value="" selected hidden>Select</option>
+                            <option value="1Story">1Story</option>
+                            <option value="2Story">2Story</option>
+                            <option value="1.5Fin">1.5Fin</option>
+                            <option value="SLvl">SLvl</option>
+                            <option value="SFoyer">SFoyer</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="inputfield">
+                    <input class="btn" type="submit" value="Precict Price">
+                </div>
+            </div>
+     
+        </form>
+
+        <div class="result">
+            {% if pred_value != 0 %}
+            <p>Estimated Price : USD {{pred_value}}</p>
+            {% endif %}
+        </div>
+      
+    </div>
+    
+</body>
+
+</html>
